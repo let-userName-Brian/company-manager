@@ -1,0 +1,58 @@
+version: '3.8'
+services:
+  db:
+    container_name: pg_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test_db
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    links:
+      - db
+  server:
+    build: ./server  
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    links:
+      - db
+      - pgadmin
+  client: 
+    build: ./client
+    restart: always
+    ports: 
+      - "80:80"
+    links:
+      - server
+      - pgadmin
+      - db
+
+# save this in a docker-compose.yml file
+# once you run docker compose up, you can access the database by running: localhost:5050
+# this will bring up PG Admin and you'll need to login with whatever you put in the  PGADMIN_DEFAULT_EMAIL and PGADMIN_DEFAULT_PASSWORD fields above
+
+# once you are logged in you need to right click on servers and select create server, 
+# give it a name on the general tab then click the connection tab and enter the following: 
+  # port: 5432
+  # maintenance DB: postgres
+  # username: root (or whatever you put in the POSTGRES_USER feild above)
+  # password: root (or whatever you put in the POSTGRES_PASSWORD feild above)
+# for the top field (host name) you need to run some fancy stuff. 
+# the top field is the name of the database you want to connect to.
+   # run: docker ps to get the postgres container id
+   # then run: docker inspect <ENTER YOUR CONTAINER ID HERE> | grep IPAddress
+   # that will give you the IP of the postgress container and you can enter it into the top field

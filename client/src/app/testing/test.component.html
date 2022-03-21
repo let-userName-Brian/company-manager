@@ -1,0 +1,8 @@
+<button (click)="getDept()">Get Dept</button>
+<div *ngIf="departments.length > 0">
+  <div *ngFor="let dept of departments">
+    <h3>{{dept.dept_name}}</h3>
+    <p>{{dept.buget}}</p>
+    <p>{{dept.revenue}}</p>
+  </div>
+</div>
