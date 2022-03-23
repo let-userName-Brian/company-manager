@@ -19,11 +19,12 @@ app.listen(PORT, () => {
 })
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Welcome to the comapny DB in Postgres!');
 });
-
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//grab all companies and their expenses
 app.get('/companies', (req, res) => {
-  pool.query('SELECT * FROM company', (error, results) => {
+  pool.query('Select * from company, company_exp where company.expense_id = company_exp.expense_id', (error, results) => {
     if (error) {
       res.send('error' + error)
     }
@@ -31,18 +32,65 @@ app.get('/companies', (req, res) => {
   })
 })
 
+//grab all companies quarterly reports and expenses 
+app.get('/companies/quarterly', (req, res) => {
+  pool.query(`select * from ((quarterly_reports 
+    inner join company on company.company_id = quarterly_reports.company_id) 
+    inner join company_exp on company_exp.expense_id = company.expense_id)`, (error, results) => {
+    if (error) {
+      res.send('error' + error)
+    }
+    res.send(results.rows)
+  })
+})
+
+//grab a specific companies quarterly reports and expenses
+app.get('/companies/:id/quarterly', (req, res) => {
+  let id = req.params.id;
+  pool.query(`select * from ((quarterly_reports inner join company 
+    on company.company_id = quarterly_reports.company_id) 
+    inner join company_exp on company_exp.expense_id = company.expense_id) 
+    where company.company_id = '${id}'`, (error, results) => {
+    if (error) {
+      res.send('error' + error)
+    }
+    res.send(results.rows)
+  })
+})
+
+//grab a company by id and show a specific quarter and fiscal year
+//test with ID 384d04aa-e559-4e47-aee3-5217c11040a4 TODO: change to company_name
+app.get('/companies/:id/quarter/:quarter/year/:year', (req, res) => {
+  let id = req.params.id;
+  let quarter = req.params.quarter;
+  let year = req.params.year;
+  pool.query(`select * from ((quarterly_reports inner join company 
+    on company.company_id = quarterly_reports.company_id) 
+    inner join company_exp on company_exp.expense_id = company.expense_id) 
+    where company.company_id = '${id}' 
+    and quarterly_reports.quarter = ${quarter}
+    and quarterly_reports.fiscal_year = '${year}'`, (error, results) => {
+    if (error) {
+      res.send('error' + error)
+    }
+    res.send(results.rows)
+  })
+})
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//all employees including their department name
 app.get('/employees', (req, res) => {
-  pool.query('SELECT * FROM employee', (error, results) => {
+  pool.query('Select *, department.dept_id, department.dept_name from employee, department where employee.dept_id = department.dept_id', (error, results) => {
     if (error) {
       res.send('error' + error)
     }
     res.send(results.rows)
   })
 })
-
-
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//get all departments and their expenses 
 app.get('/departments', (req, res) => {
-  pool.query('SELECT * FROM department', (error, results) => {
+  pool.query('Select * from department, dept_exp where department.expense_id = dept_exp.expense_id', (error, results) => {
     if (error) {
       res.send('error' + error)
     }

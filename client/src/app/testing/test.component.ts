@@ -17,6 +17,7 @@ export class TestComponent implements OnInit {
 
   getDept(){
     this.http.get(`${URL}/departments`).subscribe(data => {
+      console.log(data);
       this.departments = data;
     });
   }

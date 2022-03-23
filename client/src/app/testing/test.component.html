@@ -2,7 +2,10 @@
 <div *ngIf="departments.length > 0">
   <div *ngFor="let dept of departments">
     <h3>{{dept.dept_name}}</h3>
-    <p>{{dept.buget}}</p>
-    <p>{{dept.revenue}}</p>
+    <p>Budget: {{dept.budget}}</p>
+    <p>Revenue: {{dept.revenue}}</p>
+    <p>Payroll: {{dept.payroll}}</p>
+    <p>Supplies: {{dept.supplies}}</p>
+    <p>Marketing: {{dept.marketing}}</p>
   </div>
 </div>
