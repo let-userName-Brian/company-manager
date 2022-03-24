@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { URL } from '../env'
+import { URL } from '../../env'
 
 @Component({
   selector: 'app-test',
