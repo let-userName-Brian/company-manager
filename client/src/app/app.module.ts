@@ -7,12 +7,10 @@ import { TestComponent } from './features/testing/test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { LoginComponent } from './features/login/login.component';
-import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
-import { UserEffects } from './core/state/user/user.effects';
 
 @NgModule({
   declarations: [
@@ -27,7 +25,6 @@ import { UserEffects } from './core/state/user/user.effects';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([UserEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

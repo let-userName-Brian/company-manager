@@ -4,14 +4,6 @@
 
 export const environment = {
   production: false,
-  //added to make the app work with auth0
-  auth: {
-    domain: 'dev-0zq-jq-y.eu.auth0.com',
-    clientId: '0zq-jq-y',
-    audience: 'https://dev-0zq-jq-y.eu.auth0.com/api/v2/',
-    redirectUri: 'http://localhost:4200/callback',
-    scope: 'openid profile email'
-  }
 };
 
 /*
