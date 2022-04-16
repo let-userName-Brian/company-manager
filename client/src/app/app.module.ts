@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule} from '@angular/forms';
 import { TestComponent } from './features/testing/test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
@@ -11,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
+import { counterReducer } from './core/state/counter/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { UserProfileComponent } from './features/user-profile/user-profile.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
+    FormsModule,
+    StoreModule.forRoot({
+      counter: counterReducer,
+    }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { URL } from '../../env'
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { cunstomIncrement, decrement, increment, reset } from 'src/app/core/state/counter/counter.actions';
+import { CounterState } from 'src/app/core/state/counter/counter.state';
 
 @Component({
   selector: 'app-test',
@@ -8,17 +10,27 @@ import { URL } from '../../env'
   styleUrls: ['./test.component.sass']
 })
 export class TestComponent implements OnInit {
-
-  departments: any = [];
-  constructor(private http: HttpClient) { }
+  counter$!: Observable<{ counter: number }>; //using an observable vs subscription and setting it in the onInit
+  value: number = 0;
+  constructor(private store: Store<{ counter: CounterState }>) { }
 
   ngOnInit(): void {
+    this.counter$ = this.store.select('counter');
   }
 
-  getDept(){
-    this.http.get(`${URL}/departments`).subscribe(data => {
-      console.log(data);
-      this.departments = data;
-    });
+  increment() {
+    this.store.dispatch(increment());
+  };
+
+  decrement() {
+    this.store.dispatch(decrement());
+  };
+
+  reset() {
+    this.store.dispatch(reset());
+  };
+
+  setCounter() {
+    this.store.dispatch(cunstomIncrement({ value: +this.value }));
   }
-}
+};

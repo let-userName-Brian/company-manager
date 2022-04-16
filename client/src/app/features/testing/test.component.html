@@ -1,11 +1,6 @@
-<button (click)="getDept()">Get Dept</button>
-<div *ngIf="departments.length > 0">
-  <div *ngFor="let dept of departments">
-    <h3>{{dept.dept_name}}</h3>
-    <p>Budget: {{dept.budget}}</p>
-    <p>Revenue: {{dept.revenue}}</p>
-    <p>Payroll: {{dept.payroll}}</p>
-    <p>Supplies: {{dept.supplies}}</p>
-    <p>Marketing: {{dept.marketing}}</p>
-  </div>
-</div>
+<div> Count {{ (counter$ | async )?.counter }}</div>
+<button (click)="increment()">Increment</button>
+<button (click)="decrement()">Decrement</button>
+<button (click)="reset()">Reset</button>
+<input type="number" [(ngModel)]="value">
+<button (click)="setCounter()">Set Counter</button>
