@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { cunstomIncrement, decrement, increment, reset } from 'src/app/core/state/counter/counter.actions';
-import { CounterState } from 'src/app/core/state/counter/counter.state';
+import { cunstomIncrement, decrement, increment, reset } from 'src/app/core/store/counter/counter.actions';
+import { CounterState } from 'src/app/core/store/counter/counter.state';
 
 @Component({
   selector: 'app-test',

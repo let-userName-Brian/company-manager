@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { FormsModule} from '@angular/forms';
 import { TestComponent } from './features/testing/test.component';
@@ -12,7 +13,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
-import { counterReducer } from './core/state/counter/counter.reducer';
+import { counterReducer } from './core/store/counter/counter.reducer';
+import { DepartmentsComponent } from './features/departments/departments.component';
+import { departmentReducer } from './features/departments/store/dept.reducer';
+import { DepartmentEffects } from './features/departments/store/dept.effects';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { counterReducer } from './core/state/counter/counter.reducer';
     TestComponent,
     LoginComponent,
     NavbarComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    DepartmentsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,9 @@ import { counterReducer } from './core/state/counter/counter.reducer';
     FormsModule,
     StoreModule.forRoot({
       counter: counterReducer,
+      department: departmentReducer
     }),
+    EffectsModule.forRoot([DepartmentEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
