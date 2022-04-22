@@ -1,16 +1,24 @@
 import { createReducer, on } from "@ngrx/store";
 import { initialState } from "./dept.state";
-import { loadDepartmentsSuccess } from "./dept.actions";
+import { loadDepartmentsSuccess, loadDepartmentsFail } from "./dept.actions";
 
 
 const _departmentReducer = createReducer(
   initialState,
   on(loadDepartmentsSuccess, (state, action) => {
+    console.log('loadDepartmentsSuccess', action);
     return {
       ...state,
-      department: action
+      departments: action.departments
     };
-  }))
+  }),
+  on(loadDepartmentsFail, (state, action) => {
+    return {
+      ...state,
+      error: action.error
+    }
+  })
+);
 
 
 export function departmentReducer(state: any, action: any) {
