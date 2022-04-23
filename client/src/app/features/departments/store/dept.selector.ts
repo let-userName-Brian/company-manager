@@ -7,7 +7,6 @@ export const getDeptState = createFeatureSelector<Department>(DEPT_STATE_NAME);
 
 export const getDepts = createSelector(
   getDeptState, (state) => {
-    console.log('getDeptsSelector', state);
     return state.departments;
   }
 )

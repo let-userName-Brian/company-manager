@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const PORT = process.env.PORT || 3000;
-const { getAllDepartments } = require('./routes/departments');
+const { getAllDepartments, getManagersByDepartment, getEmployeesByDepartmentByLimit } = require('./routes/departments');
+const { getTotalNumberOfEmployees, getTotalNumberOfEmployeesByGender, getAllEmployeesByGender } = require('./routes/employees');
 require('dotenv').config();
 
 app.use(bodyParser.json());
@@ -23,3 +24,10 @@ app.get('/', (req, res) => {
 
 //department routes
 app.get('/departments', getAllDepartments)
+app.get('/departments/employees', getEmployeesByDepartmentByLimit)
+app.get('/departments/managers', getManagersByDepartment)
+
+//employee routes
+app.get('/employees/total', getTotalNumberOfEmployees)
+app.get('/employees/gender', getTotalNumberOfEmployeesByGender)
+app.get('/employees/by-gender', getAllEmployeesByGender)

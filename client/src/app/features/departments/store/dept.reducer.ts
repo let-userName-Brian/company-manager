@@ -6,7 +6,6 @@ import { loadDepartmentsSuccess, loadDepartmentsFail } from "./dept.actions";
 const _departmentReducer = createReducer(
   initialState,
   on(loadDepartmentsSuccess, (state, action) => {
-    console.log('loadDepartmentsSuccess', action);
     return {
       ...state,
       departments: action.departments
