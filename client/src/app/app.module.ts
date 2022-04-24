@@ -17,6 +17,10 @@ import { NavbarComponent } from './features/navbar/navbar.component';
 import { LoginComponent } from './features/login/login.component';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
 import { DepartmentsComponent } from './features/departments/departments.component';
+import { ManagersComponent } from './features/managers/managers.component';
+import { EmployeesComponent } from './features/employees/employees.component';
+import { MetricsComponent } from './features/metrics/metrics.component';
+import { MiscComponent } from './features/misc/misc.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { DepartmentsComponent } from './features/departments/departments.compone
     LoginComponent,
     NavbarComponent,
     UserProfileComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    ManagersComponent,
+    EmployeesComponent,
+    MetricsComponent,
+    MiscComponent
   ],
   imports: [
     BrowserModule,
