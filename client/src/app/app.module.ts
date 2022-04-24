@@ -24,6 +24,7 @@ import { MiscComponent } from './features/misc/misc.component';
 import { TopMetricsComponent } from './features/metrics/top-metrics/top-metrics.component';
 import { BottomMetricsComponent } from './features/metrics/bottom-metrics/bottom-metrics.component';
 import { CenterGraphComponent } from './features/metrics/center-graph/center-graph.component';
+import { CenterSideComponent } from './features/metrics/center-side/center-side.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CenterGraphComponent } from './features/metrics/center-graph/center-gra
     MiscComponent,
     TopMetricsComponent,
     BottomMetricsComponent,
-    CenterGraphComponent
+    CenterGraphComponent,
+    CenterSideComponent
   ],
   imports: [
     BrowserModule,
