@@ -5,9 +5,11 @@ import { EmployeesComponent } from './features/employees/employees.component';
 import { ManagersComponent } from './features/managers/managers.component';
 import { MetricsComponent } from './features/metrics/metrics.component';
 import { MiscComponent } from './features/misc/misc.component';
+import { UserProfileComponent } from './features/user-profile/user-profile.component';
 
 const routes: Routes = [
-  { path: '', component: MetricsComponent },
+  { path: '', component: UserProfileComponent },
+  { path: 'metrics', component: MetricsComponent },
   { path: 'departments', component: DepartmentsComponent },
   { path: 'managers', component: ManagersComponent },
   { path: 'employees', component: EmployeesComponent },

@@ -21,6 +21,9 @@ import { ManagersComponent } from './features/managers/managers.component';
 import { EmployeesComponent } from './features/employees/employees.component';
 import { MetricsComponent } from './features/metrics/metrics.component';
 import { MiscComponent } from './features/misc/misc.component';
+import { TopMetricsComponent } from './features/metrics/top-metrics/top-metrics.component';
+import { BottomMetricsComponent } from './features/metrics/bottom-metrics/bottom-metrics.component';
+import { CenterGraphComponent } from './features/metrics/center-graph/center-graph.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { MiscComponent } from './features/misc/misc.component';
     ManagersComponent,
     EmployeesComponent,
     MetricsComponent,
-    MiscComponent
+    MiscComponent,
+    TopMetricsComponent,
+    BottomMetricsComponent,
+    CenterGraphComponent
   ],
   imports: [
     BrowserModule,
