@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Mulish&display=swap')
+
+/*     Layout      */
+  
+.container
+  padding: 0
+  margin: 0
+  display: flex
+  flex-direction: row
+  justify-content: center
+  height: 100vh
+  background-color: #363740
+
+.form-container
+  display: flex
+  flex-direction: column
+  align-self: center
+  align-items: center
+  height: 50vh
+  width: 23vw
+  background-color: #ffffff
+  border: 1px solid #3751FF
+  border-radius: 15px
+  padding: 0
+  margin: 0
+
+
+/*     Logo and Text     */
+    
+.logo
+  margin-top: 1.5rem
+  width: 3rem
+  border: 1
+  margin-bottom: 1rem
+
+h3
+  font-family: 'Mulish', sans-serif
+  font-size: 19px
+  font-weight: bold
+  color: #A4A6B3
+  margin: 0
+  padding: 0
+  margin-bottom: 1rem
+
+p
+  font-family: 'Mulish', sans-serif
+  color: #252733
+  font-size: 24px
+  font-weight: bold
+
+a
+  font-family: 'Mulish', sans-serif
+  font-size: 14px
+  color: #9FA2B4
+  text-decoration: none
+  margin-top: 1rem
+  text-decoration: none
+  cursor: normal
+
+/*     FORM      */
+    
+.form
+  margin-top: 2rem
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+label
+  font-family: 'Mulish', sans-serif
+  font-size: 14px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  color: #9FA2B4
+
+input
+  border-radius: 5px
+  border: 1px solid #9FA2B4
+  padding: 0.5rem
+  width: 15rem
+  height: 1rem
+  font-size: 14px
+  font-family: 'Mulish', sans-serif
+  color: #252733
+  background-color: #ffffff
+
+.password
+  margin-top: 1rem
+  margin-bottom: -10rem
+
+.btn
+  margin-top: 12rem
+  width: 8rem
+  height: 2rem
+  background-color: #3751FF
+  color: #ffffff
+  border-radius: 5px
+  border: 1px solid #3751FF
+
+.btn:hover
+  background-color: #3751FF
+  color: #ffffff
+  transform: scale(1.1)
+  cursor: pointer
+
+/* Media quearies for responsivness */
+    
+@media screen and ( max-width: 1200px )
+  .form-container
+    width: 30vw
+    height: 60vh
+  .logo
+    margin-top: 3rem
+
+
+@media screen and ( max-width: 900px )
+  .form-container
+    width: 80vw
+    height: 60vh
+  .logo
+    margin-top: 3rem
