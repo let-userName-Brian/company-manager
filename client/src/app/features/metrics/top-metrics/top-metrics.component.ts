@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Department } from 'src/app/core/interfaces/department.model';
 import { getDepts } from '../../departments/store/dept.selector';
+import { getEmps } from '../../employees/store/employees.selector';
 
 @Component({
   selector: 'app-top-metrics',
@@ -9,12 +11,12 @@ import { getDepts } from '../../departments/store/dept.selector';
   styleUrls: ['./top-metrics.component.sass']
 })
 export class TopMetricsComponent implements OnInit {
-  departments: Department[] = []
+  departments$: Observable<Department[]>
+  empCount$: Observable<number>
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.store.select(getDepts).subscribe(dept => {
-      this.departments = dept
-    });
+    this.departments$ = this.store.select(getDepts)
+    this.empCount$ = this.store.select(getEmps)
   };
 };

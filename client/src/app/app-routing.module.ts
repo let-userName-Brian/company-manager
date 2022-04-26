@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DepartmentsComponent } from './features/departments/departments.component';
 import { EmployeesComponent } from './features/employees/employees.component';
 import { LoginComponent } from './features/login/login.component';
 import { ManagersComponent } from './features/managers/managers.component';
@@ -12,9 +11,9 @@ const routes: Routes = [
   { path: '', component: UserProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'metrics', component: MetricsComponent },
-  { path: 'departments', component: DepartmentsComponent },
+  { path: 'departments', loadChildren: () => import('./features/departments/department.module').then(m => m.DepartmentModule) },
   { path: 'managers', component: ManagersComponent },
-  { path: 'employees', component: EmployeesComponent },
+  { path: 'employees', loadChildren: () => import('./features/employees/employees.module').then(m => m.EmployeeModule) },
   { path: 'misc', component: MiscComponent }
 
 ];

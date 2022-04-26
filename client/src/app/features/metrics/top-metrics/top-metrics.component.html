@@ -5,7 +5,7 @@
       <p>Departments</p>
     </div>
     <div class="card-body">
-      <p>{{ departments.length }}</p>
+      <p>{{ (departments$ | async).length }}</p>
     </div>
   </div>
     <!-- Card 2 -->
@@ -14,7 +14,7 @@
       <p>Employees</p>
     </div>
     <div class="card-body">
-      <p>30,000</p>
+      <p>{{ empCount$ | async }}</p>
     </div>
   </div>
     <!-- Card 3 -->

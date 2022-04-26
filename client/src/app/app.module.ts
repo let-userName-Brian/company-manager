@@ -9,16 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { departmentReducer } from './features/departments/store/dept.reducer';
-import { DepartmentEffects } from './features/departments/store/dept.effects';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { LoginComponent } from './features/login/login.component';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
-import { DepartmentsComponent } from './features/departments/departments.component';
 import { ManagersComponent } from './features/managers/managers.component';
-import { EmployeesComponent } from './features/employees/employees.component';
 import { MetricsComponent } from './features/metrics/metrics.component';
 import { MiscComponent } from './features/misc/misc.component';
 import { TopMetricsComponent } from './features/metrics/top-metrics/top-metrics.component';
@@ -32,9 +27,7 @@ import { CenterSideComponent } from './features/metrics/center-side/center-side.
     LoginComponent,
     NavbarComponent,
     UserProfileComponent,
-    DepartmentsComponent,
     ManagersComponent,
-    EmployeesComponent,
     MetricsComponent,
     MiscComponent,
     TopMetricsComponent,
@@ -47,10 +40,8 @@ import { CenterSideComponent } from './features/metrics/center-side/center-side.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({
-      department: departmentReducer
-    }),
-    EffectsModule.forRoot([DepartmentEffects]),
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

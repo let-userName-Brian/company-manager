@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { getEmployeesCount } from './store/employees.actions';
 
 @Component({
   selector: 'app-employees',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.store.dispatch(getEmployeesCount());
   }
 
 }

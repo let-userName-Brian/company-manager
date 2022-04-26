@@ -18,9 +18,5 @@ export class DepartmentsComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(loadDepartments());
     this.departments$ = this.store.select(getDepts);
-    setTimeout(() => {
-      console.log('departments$', this.departments$);
-    }, 1000);
   };
-
 };
