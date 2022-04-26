@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
-import { catchError, exhaustMap, map } from "rxjs";
+import { catchError, exhaustMap, map, switchMap, tap } from "rxjs";
 import { EmployeeService } from "src/app/core/services/employee.service";
 import { getEmployeesCount, onEmployeesCountFail, onEmployeesCountSuccess } from "./employees.actions";
+import { EmployeeState } from "./employees.state";
 
 @Injectable()
 export class EmployeeEffects {
@@ -14,12 +15,12 @@ export class EmployeeEffects {
       ofType(getEmployeesCount),
       exhaustMap(() => {
         return this.empService.getEmployeeCount().pipe(
-          map((count) => {
-            console.log('count', count);
-            return onEmployeesCountSuccess({ count });
+          map((serviceCount) => {
+            let count = serviceCount[0].count;
+            return onEmployeesCountSuccess({ count: count });
           }),
           catchError((error): any => {
-            return onEmployeesCountFail({ error });
+            return onEmployeesCountFail({error: error});
           })
         )
       })

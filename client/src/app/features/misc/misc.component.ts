@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from 'src/app/core/services/employee.service';
 
 @Component({
   selector: 'app-misc',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./misc.component.sass']
 })
 export class MiscComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

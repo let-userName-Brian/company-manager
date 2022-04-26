@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 
 
-export const LOAD_EMPLOYEES = "[Employees] Load Employees";
+export const LOAD_EMPLOYEES = "[Employees] Load Employees Count";
 export const LOAD_EMPLOYEES_SUCCESS = "[Employees] Load Employees Success";
 export const LOAD_EMPLOYEES_FAIL = "[Employees] Load Employees Fail";
 
