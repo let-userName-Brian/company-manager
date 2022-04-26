@@ -1,7 +1,7 @@
 import { Department } from "src/app/core/interfaces/department.model";
 
 export interface DepartmentState {
-  departments: Department[];
+  departments: Department[] | null;
   count: number;
 }
 

@@ -11,12 +11,12 @@ import { getEmps } from '../../employees/store/employees.selector';
   styleUrls: ['./top-metrics.component.sass']
 })
 export class TopMetricsComponent implements OnInit {
-  departments$: Observable<Department[]>
-  empCount$: Observable<number>
+  departments$: Observable<Department[]>;
+  empCount$: Observable<number>;
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.departments$ = this.store.select(getDepts)
-    this.empCount$ = this.store.select(getEmps)
+    this.departments$ = this.store.select(getDepts);
+    this.empCount$ = this.store.select(getEmps);
   };
 };

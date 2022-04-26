@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
-import { catchError, exhaustMap, map, switchMap, tap } from "rxjs";
+import { catchError, exhaustMap, map } from "rxjs";
 import { EmployeeService } from "src/app/core/services/employee.service";
 import { getEmployeesCount, onEmployeesCountFail, onEmployeesCountSuccess } from "./employees.actions";
-import { EmployeeState } from "./employees.state";
 
 @Injectable()
 export class EmployeeEffects {
