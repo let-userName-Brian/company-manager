@@ -10,7 +10,7 @@ import { getEmployeesCount } from '../employees/store/employees.actions';
 export class MetricsComponent implements OnInit {
   constructor(private store: Store) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.store.dispatch(loadDepartments());
     this.store.dispatch(getEmployeesCount());
   }

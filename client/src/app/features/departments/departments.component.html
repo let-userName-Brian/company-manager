@@ -1,15 +1,11 @@
-<p>departments works!</p>
-<table>
-  <thead>
-    <tr>
-      <th>Department Number</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let department of departments$ | async">
-      <td>{{department.dept_no}}</td>
-      <td>{{department.dept_name}}</td>
-    </tr>
-  </tbody>
-</table>
+<clr-datagrid>
+  <clr-dg-column>Department Number</clr-dg-column>
+  <clr-dg-column>Department Name</clr-dg-column>
+
+  <clr-dg-row *ngFor="let department of departments$ | async">
+    <clr-dg-cell>{{department.dept_no}}</clr-dg-cell>
+    <clr-dg-cell>{{department.dept_name}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>{{(departments$ | async).length}} departments</clr-dg-footer>
+</clr-datagrid>
