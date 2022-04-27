@@ -23,6 +23,7 @@ import { metricsReducer } from './features/metrics/store/metrics.state';
 import { MetricsComponent } from './features/metrics/metrics.component';
 import { DepartmentEffects } from './features/departments/store/dept.effects';
 import { EmployeeEffects } from './features/employees/store/employees.effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EmployeeEffects } from './features/employees/store/employees.effects';
     FormsModule,
     StoreModule.forRoot(metricsReducer),
     EffectsModule.forRoot([DepartmentEffects, EmployeeEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

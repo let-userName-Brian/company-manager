@@ -13,6 +13,7 @@ import { getDepts } from './store/dept.selector';
 })
 export class DepartmentsComponent implements OnInit {
   departments$: Observable<any>
+  displayedColumns: string[] = ['Department Number', 'Department Name'];
   constructor(private store: Store<{ department: Department }>) { };
 
   ngOnInit(): void {

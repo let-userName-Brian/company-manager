@@ -55,5 +55,5 @@ async function connectToDB() {
 
 /*
 * docker run script
-* docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=Batman890 -d postgres
+* docker run -e POSTGRES_USER=docker --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=Batman890 -d postgres
 */

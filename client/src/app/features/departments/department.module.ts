@@ -7,7 +7,7 @@ import { departmentReducer } from "./store/dept.reducer";
 import { DepartmentsComponent } from "./departments.component";
 import { EffectsModule } from "@ngrx/effects";
 import { DepartmentEffects } from "./store/dept.effects";
-import { ClarityModule } from '@clr/angular';
+import { MatTableModule } from '@angular/material/table';
 
 const deptRoutes: Routes = [
   { path: '', component: DepartmentsComponent}
@@ -19,7 +19,7 @@ const deptRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    ClarityModule,
+    MatTableModule,
     RouterModule.forChild(deptRoutes),
     StoreModule.forFeature(DEPT_STATE_NAME, departmentReducer),
     EffectsModule.forFeature([DepartmentEffects]),

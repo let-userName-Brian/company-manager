@@ -1,12 +1,11 @@
 require('dotenv').config();
 const Pool = require('pg').Pool;
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-})
+  host: 'localhost',
+  database: 'postgres',
+  password: 'Batman890',
+  port: 5432
+});
 
 async function getTotalNumberOfEmployees(req, res) {
   pool.query('SElECT COUNT(employees) FROM employees', (error, results) => {
