@@ -6,14 +6,14 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
-})
+});
 
 async function getAllDepartments(_, res) {
   pool.query('SELECT * FROM departments', (error, results) => {
     if (error) {
       throw error;
-    }
-    res.status(200)
+    };
+    res.status(200);
     res.send(results.rows);
   });
 };
@@ -23,8 +23,8 @@ async function getManagersByDepartment(req, res) {
   pool.query(`SELECT * FROM dept_manager, employees WHERE dept_manager.dept_no='${deptNo}' AND dept_manager.emp_no=employees.emp_no`, (error, results) => {
     if (error) {
       throw error;
-    }
-    res.status(200)
+    };
+    res.status(200);
     res.send(results.rows);
   });
 };
@@ -38,12 +38,12 @@ async function getEmployeesByDepartmentByLimit(req, res) {
 	LIMIT ${number}`, (error, results) => {
     if (error) {
       throw error;
-    }
-    res.status(200)
+    };
+    res.status(200);
     res.send(results.rows);
   });
 };
 
 
 
-module.exports = { getAllDepartments, getManagersByDepartment, getEmployeesByDepartmentByLimit }
+module.exports = { getAllDepartments, getManagersByDepartment, getEmployeesByDepartmentByLimit };

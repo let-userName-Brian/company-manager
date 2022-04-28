@@ -8,9 +8,9 @@
   display: flex
   flex-direction: row
   justify-content: center
-  height: 101vh
+  height: 100vh
   width: 100vw
-  margin-left: -5rem
+  margin-left: -1rem
   background-color: #363740
 
 .form-container
@@ -18,7 +18,7 @@
   flex-direction: column
   align-self: center
   align-items: center
-  height: 55vh
+  height: 60vh
   width: 23vw
   background-color: #ffffff
   border: 1px solid #3751FF
@@ -26,9 +26,11 @@
   padding: 0
   margin: 0
 
+.signup-section
+  margin-top: 3rem
 
 /*     Logo and Text     */
-    
+
 .logo
   margin-top: 1.5rem
   width: 3rem
@@ -60,7 +62,7 @@ a
   cursor: normal
 
 /*     FORM      */
-    
+
 .form
   margin-top: 2rem
   display: flex
@@ -107,15 +109,29 @@ input
   transform: scale(1.1)
   cursor: pointer
 
+.signup
+  margin-top: 0.5rem
+  width: 8rem
+  height: 2rem
+  background-color: #f0f496
+  color: #050505
+  border-radius: 5px
+  border: 1px solid #3751FF
+
+.signup:hover
+  background-color: #f0f496
+  color: #050505
+  transform: scale(1.1)
+  cursor: pointer
+  
 /* Media quearies for responsivness */
-    
+
 @media screen and ( max-width: 1200px )
   .form-container
     width: 30vw
     height: 60vh
   .logo
     margin-top: 3rem
-
 
 @media screen and ( max-width: 900px )
   .form-container

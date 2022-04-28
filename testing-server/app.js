@@ -26,21 +26,21 @@ const pool = new Pool({
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
   connectToDB();
-})
+});
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Employee Manager * TESTING * DB in Postgres!');
 });
 
 //department routes
-app.get('/departments', getAllDepartments)
-app.get('/departments/employees', getEmployeesByDepartmentByLimit)
-app.get('/departments/managers', getManagersByDepartment)
+app.get('/departments', getAllDepartments);
+app.get('/departments/employees', getEmployeesByDepartmentByLimit);
+app.get('/departments/managers', getManagersByDepartment);
 
 //employee routes
-app.get('/employees/total', getTotalNumberOfEmployees)
-app.get('/employees/gender', getTotalNumberOfEmployeesByGender)
-app.get('/employees/by-gender', getAllEmployeesByGender)
+app.get('/employees/total', getTotalNumberOfEmployees);
+app.get('/employees/gender', getTotalNumberOfEmployeesByGender);
+app.get('/employees/by-gender', getAllEmployeesByGender);
 
 
 async function connectToDB() {
@@ -49,7 +49,7 @@ async function connectToDB() {
     return console.log('connected to db');
   } catch (err) {
     console.log(err);
-  }
+  };
 };
 
 

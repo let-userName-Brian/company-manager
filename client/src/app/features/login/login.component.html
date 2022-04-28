@@ -4,16 +4,20 @@
     <h3>DBI LLC</h3>
     <p>Login to your dashboard</p>
     <a>Enter your email and password below</a>
-    <form class="form">
+    <form class="form" [formGroup]="loginForm">
       <div class="username">
         <label for="username">Username</label>
-        <input type="text" name="username" placeholder="Username">
+        <input type="text" name="username" placeholder="Username" formControlName="username">
       </div>
       <div class="password">
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password" formControlName="password">
       </div>
       <button class="btn btn-hover" (click)="onLogin()">Login</button>
     </form>
+    <div class="signup-section">
+      <a>Don't have an accout?</a>
+    </div>
+    <button class="signup signup-hover">Signup</button>
   </div>
 </div>

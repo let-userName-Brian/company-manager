@@ -11,26 +11,26 @@ async function getTotalNumberOfEmployees(req, res) {
   pool.query('SElECT COUNT(employees) FROM employees', (error, results) => {
     if (error) {
       throw error;
-    }
-    res.status(200)
+    };
+    res.status(200);
     res.send(results.rows);
   });
 };
 
 async function getTotalNumberOfEmployeesByGender(req, res) {
-  const gender = req.body.gender
+  const gender = req.body.gender;
   pool.query(`SELECT COUNT(gender) FROM employees	WHERE employees.gender='${gender}'`, (error, results) => {
     if (error) {
       throw error;
-    }
-    res.status(200)
+    };
+    res.status(200);
     res.send(results.rows);
   });
-}
+};
 
 
 async function getAllEmployeesByGender(req, res) {
-  const gender = req.body.gender
+  const gender = req.body.gender;
   pool.query(`SELECT * FROM employees WHERE employees.gender='${gender}'`, (error, results) => {
     if (error) {
       throw error;
@@ -38,5 +38,6 @@ async function getAllEmployeesByGender(req, res) {
     res.status(200)
     res.send(results.rows);
   });
-}
-module.exports = { getTotalNumberOfEmployees, getTotalNumberOfEmployeesByGender, getAllEmployeesByGender }
+};
+
+module.exports = { getTotalNumberOfEmployees, getTotalNumberOfEmployeesByGender, getAllEmployeesByGender };

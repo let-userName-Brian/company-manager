@@ -4,7 +4,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { EffectsModule } from '@ngrx/effects';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -44,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(metricsReducer),
     EffectsModule.forRoot([DepartmentEffects, EmployeeEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
