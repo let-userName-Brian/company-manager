@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Department } from 'src/app/core/interfaces/department.model';
 import { getDepts } from '../../departments/store/dept.selector';
 import { getEmps } from '../../employees/store/employees.selector';
+import { getManagersCount } from '../../managers/store/managers.selector';
 
 @Component({
   selector: 'app-top-metrics',
@@ -13,10 +14,12 @@ import { getEmps } from '../../employees/store/employees.selector';
 export class TopMetricsComponent implements OnInit {
   departments$: Observable<Department[]>;
   empCount$: Observable<number>;
+  managerCount$: Observable<number>;
   constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.departments$ = this.store.select(getDepts);
     this.empCount$ = this.store.select(getEmps);
+    this.managerCount$ = this.store.select(getManagersCount);
   };
 };

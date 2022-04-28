@@ -17,6 +17,16 @@ async function getAllDepartments(_, res) {
   });
 };
 
+async function getTotalNumberOfDepartmentManager(req, res) {
+  pool.query('SElECT COUNT(emp_no) FROM dept_manager', (error, results) => {
+    if (error) {
+      throw error;
+    };
+    res.status(200);
+    res.send(results.rows);
+  });
+};
+
 async function getManagersByDepartment(req, res) {
   const deptNo = req.params.deptNo;
   pool.query(`SELECT * FROM dept_manager, employees WHERE dept_manager.dept_no='${deptNo}' AND dept_manager.emp_no=employees.emp_no`, (error, results) => {
@@ -43,4 +53,4 @@ async function getEmployeesByDepartmentByLimit(req, res) {
   });
 };
 
-module.exports = { getAllDepartments, getManagersByDepartment, getEmployeesByDepartmentByLimit };
+module.exports = { getAllDepartments, getManagersByDepartment, getEmployeesByDepartmentByLimit, getTotalNumberOfDepartmentManager };

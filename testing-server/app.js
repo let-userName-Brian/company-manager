@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const PORT = process.env.PORT || 3000;
-const { getAllDepartments, getManagersByDepartment, getEmployeesByDepartmentByLimit } = require('./routes/departments');
+const { getAllDepartments, getManagersByDepartment, getEmployeesByDepartmentByLimit, getTotalNumberOfDepartmentManager } = require('./routes/departments');
 const { getTotalNumberOfEmployees, getTotalNumberOfEmployeesByGender, getAllEmployeesByGender } = require('./routes/employees');
 require('dotenv').config();
 const { Pool } = require('pg');
@@ -36,6 +36,7 @@ app.get('/', (req, res) => {
 app.get('/departments', getAllDepartments);
 app.get('/departments/employees', getEmployeesByDepartmentByLimit);
 app.get('/departments/managers', getManagersByDepartment);
+app.get('/departments/total-managers', getTotalNumberOfDepartmentManager);
 
 //employee routes
 app.get('/employees/total', getTotalNumberOfEmployees);

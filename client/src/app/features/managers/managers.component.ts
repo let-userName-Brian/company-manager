@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { getManagerCount } from './store/managers.actions';
 
 @Component({
   selector: 'app-managers',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
-  }
+    this.store.dispatch(getManagerCount());
+  };
 
-}
+};

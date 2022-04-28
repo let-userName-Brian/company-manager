@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { LoginComponent } from './features/login/login.component';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
-import { ManagersComponent } from './features/managers/managers.component';
 import { MiscComponent } from './features/misc/misc.component';
 import { TopMetricsComponent } from './features/metrics/top-metrics/top-metrics.component';
 import { BottomMetricsComponent } from './features/metrics/bottom-metrics/bottom-metrics.component';
@@ -24,6 +23,7 @@ import { MetricsComponent } from './features/metrics/metrics.component';
 import { DepartmentEffects } from './features/departments/store/dept.effects';
 import { EmployeeEffects } from './features/employees/store/employees.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ManagerEffects } from './features/managers/store/managers.effects';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     MetricsComponent,
     UserProfileComponent,
-    ManagersComponent,
     MiscComponent,
     TopMetricsComponent,
     BottomMetricsComponent,
@@ -46,7 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(metricsReducer),
-    EffectsModule.forRoot([DepartmentEffects, EmployeeEffects]),
+    EffectsModule.forRoot([DepartmentEffects, EmployeeEffects, ManagerEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     BrowserAnimationsModule
   ],
