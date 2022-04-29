@@ -6,6 +6,7 @@ const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const { getAllDepartments, getManagersByDepartment, getEmployeesByDepartmentByLimit, getTotalNumberOfDepartmentManager } = require('./routes/departments');
 const { getTotalNumberOfEmployees, getTotalNumberOfEmployeesByGender, getAllEmployeesByGender } = require('./routes/employees');
+const { getEmployeesAndSalaryLimit, getSalaryOverview } = require('./routes/salaries');
 require('dotenv').config();
 const { Pool } = require('pg');
 
@@ -43,6 +44,9 @@ app.get('/employees/total', getTotalNumberOfEmployees);
 app.get('/employees/gender', getTotalNumberOfEmployeesByGender);
 app.get('/employees/by-gender', getAllEmployeesByGender);
 
+//salary metric routes
+app.get('/salaries/overview', getSalaryOverview);
+app.get('/salaries/employees-limit', getEmployeesAndSalaryLimit);
 
 async function connectToDB() {
   try {

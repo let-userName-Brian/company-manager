@@ -40,4 +40,5 @@ async function getAllEmployeesByGender(req, res) {
   });
 };
 
+
 module.exports = { getTotalNumberOfEmployees, getTotalNumberOfEmployeesByGender, getAllEmployeesByGender };
