@@ -12,7 +12,6 @@ export class EmployeesComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(getEmployeesCount());
   }
 
 }

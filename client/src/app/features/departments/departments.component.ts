@@ -17,7 +17,6 @@ export class DepartmentsComponent implements OnInit {
   constructor(private store: Store<{ department: Department }>) { };
 
   ngOnInit(): void {
-    this.store.dispatch(loadDepartments());
     this.departments$ = this.store.select(getDepts);
   };
 };
