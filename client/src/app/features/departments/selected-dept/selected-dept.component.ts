@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { DepartmentService } from 'src/app/core/services/department.service';
 import { getDepts } from '../store/dept.selector';
 
 @Component({
@@ -10,10 +11,18 @@ import { getDepts } from '../store/dept.selector';
 })
 export class SelectedDeptComponent implements OnInit {
   departmentNames$: Observable<any>
-  selectedValue: string;
-  constructor(private store: Store) { }
+  selectedValue: string = 'd001'
+  selectedDepartment: any[] = [];
+
+  constructor(private store: Store, private deptService: DepartmentService) { }
 
   ngOnInit(): void {
-   // this.departmentNames$ = this.store.select(getDepts)
+   this.departmentNames$ = this.store.select(getDepts)
+  };
+
+  onChange() {
+   this.deptService.getManagersById(this.selectedValue).subscribe(res => {
+      this.selectedDepartment = res;
+    });
   };
 };

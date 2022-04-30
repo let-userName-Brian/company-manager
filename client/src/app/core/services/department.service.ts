@@ -9,5 +9,9 @@ export class DepartmentService {
 
   getAllDepartments(): Observable<Department> {
     return this.http.get<Department>('http://localhost:3000/departments');
-  }
-}
+  };
+
+  getManagersById(id: string) {
+    return this.http.get<any>(`http://localhost:3000/departments/managers` + id);
+  };
+};

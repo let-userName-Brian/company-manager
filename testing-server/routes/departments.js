@@ -28,7 +28,7 @@ async function getTotalNumberOfDepartmentManager(req, res) {
 };
 
 async function getManagersByDepartment(req, res) {
-  const deptNo = req.params.deptNo;
+  const deptNo = req.params.id;
   pool.query(`SELECT * FROM dept_manager, employees WHERE dept_manager.dept_no='${deptNo}' AND dept_manager.emp_no=employees.emp_no`, (error, results) => {
     if (error) {
       throw error;

@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 //department routes
 app.get('/departments', getAllDepartments);
 app.get('/departments/employees', getEmployeesByDepartmentByLimit);
-app.get('/departments/managers', getManagersByDepartment);
+app.get('/departments/managers:id', getManagersByDepartment);
 app.get('/departments/total-managers', getTotalNumberOfDepartmentManager);
 
 //employee routes

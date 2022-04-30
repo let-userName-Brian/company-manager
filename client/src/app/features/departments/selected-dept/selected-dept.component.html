@@ -1,0 +1,23 @@
+<div class="selector-container">
+  <div>
+    <h2>Select a department</h2>
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Departments</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="food" (valueChange)="onChange()">
+          <mat-option *ngFor="let dept of departmentNames$ | async" [value]="dept.dept_no">
+            {{dept.dept_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p> Selected Dept: {{selectedValue}} </p>
+    </form>
+  </div>
+  <div>
+    <h2>Department Details</h2>
+    <div *ngFor="let dept of selectedDepartment">
+      <p>Dept Manager Name: {{dept.first_name }}</p>
+      <p>Dept Manager Birthday: {{dept.birth_date | date}}</p>
+    </div>
+  </div>
+</div>
