@@ -1,24 +1,36 @@
 <div class="selector-container">
-  <div>
-    <h2>Select a department</h2>
-    <form>
-      <mat-form-field appearance="fill">
-        <mat-label>Departments</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="food" (valueChange)="onChange()">
-          <mat-option *ngFor="let dept of departmentNames$ | async" [value]="dept.dept_no">
-            {{dept.dept_name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
+  <div class="selector">
+    <mat-card class="selector-card">
+      <mat-card-header>
+        <mat-card-title class="selector-title">Select a department</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form>
+          <mat-form-field appearance="fill">
+            <mat-label>Departments</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="food" (valueChange)="onChange()">
+              <mat-option *ngFor="let dept of departmentNames$ | async" [value]="dept.dept_no">
+                {{dept.dept_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
   </div>
-  <div>
-    <h2>Department Details</h2>
-    <div *ngIf="selectedDepartmentManager$ !== null">
-      <div *ngFor="let dept of selectedDepartmentManager$ | async">
-        <p>Dept Manager Name: {{dept.first_name }}</p>
-        <p>Dept Manager Birthday: {{dept.birth_date | date}}</p>
-      </div>
+  <div *ngFor="let dept of selectedDepartmentManager$ | async">
+    <div class="details">
+      <mat-card class="card">
+        <mat-card-header>
+          <div mat-card-avatar class="header-image hover"></div>
+          <mat-card-title>{{dept.first_name + " " + dept.last_name}}</mat-card-title>
+          <mat-card-subtitle>Hired on {{dept.hire_date | date}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <p>Birthday: {{dept.birth_date | date}}</p>
+          <p> Gender: {{dept.gender}}</p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </div>

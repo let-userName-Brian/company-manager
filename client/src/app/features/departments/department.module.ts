@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 const deptRoutes: Routes = [
   { path: '', component: DepartmentsComponent }
@@ -28,6 +29,7 @@ const deptRoutes: Routes = [
     MatTableModule,
     MatSelectModule,
     FormsModule,
+    MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
     MatFormFieldModule,
