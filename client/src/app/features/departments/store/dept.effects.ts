@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, exhaustMap, map } from "rxjs";
 import { DepartmentService } from "src/app/core/services/department.service";
-import { loadDepartments, loadDepartmentsSuccess, loadDepartmentsFail } from "./dept.actions";
+import { loadDepartments, loadDepartmentsSuccess, loadDepartmentsFail, loadDeptManager, loadDeptManagerSuccess, loadDeptManagerFail } from "./dept.actions";
 
 @Injectable()
 export class DepartmentEffects {
@@ -21,5 +21,21 @@ export class DepartmentEffects {
           })
         );
       }));
+  });
+
+  deptManager$ = createEffect((): any => {
+    return this.actions$.pipe(
+      ofType(loadDeptManager),
+      exhaustMap((action) => {
+        return this.deptService.getManagersById(action.dept_no).pipe(
+          map((departmentManager) => {
+            return loadDeptManagerSuccess({ departmentManager });
+          }),
+          catchError((error): any => {
+            return loadDeptManagerFail({ error });
+          })
+        );
+      })
+    );
   });
 };

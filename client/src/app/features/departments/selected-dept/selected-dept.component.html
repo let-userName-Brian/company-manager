@@ -10,14 +10,15 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <p> Selected Dept: {{selectedValue}} </p>
     </form>
   </div>
   <div>
     <h2>Department Details</h2>
-    <div *ngFor="let dept of selectedDepartment">
-      <p>Dept Manager Name: {{dept.first_name }}</p>
-      <p>Dept Manager Birthday: {{dept.birth_date | date}}</p>
+    <div *ngIf="selectedDepartmentManager$ !== null">
+      <div *ngFor="let dept of selectedDepartmentManager$ | async">
+        <p>Dept Manager Name: {{dept.first_name }}</p>
+        <p>Dept Manager Birthday: {{dept.birth_date | date}}</p>
+      </div>
     </div>
   </div>
 </div>
