@@ -19,13 +19,17 @@ body
   width: 300px
   margin-left: -.5rem
   margin-top: -.5rem
-  margin-bottom: -1rem
+  margin-bottom: -5rem
   padding: 0
 
 /* ----- Menu ----- */
 
 menu
-  height: 101vh
+  min-height: 110%
+  overflow: hidden
+
+menu:hover
+  transition: all 1s ease-in-out
 
 menu#side-menu
   display: inline-block
@@ -95,14 +99,13 @@ menu#side-menu:hover > ul li.side-menu-item .side-menu-text
   padding-right: 1.5rem
   width: 100%
   min-width: 200px
-  transition: all 0.15s ease-in-out
-  
+  transition: all 1s ease-in-out
+
 /* ----- Icons ----- */
 
 menu#side-menu ul li.side-menu-item .svg-icon
   width: 1em
   height: 1em
-
 
 /* ----- LOGO ----- */
 

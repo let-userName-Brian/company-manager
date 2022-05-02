@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/core/interfaces/department.model';
-import { loadDepartments } from './store/dept.actions';
 import { getDepts } from './store/dept.selector';
 
 
