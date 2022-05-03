@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { LoginComponent } from './features/login/login.component';
 import { UserProfileComponent } from './features/user-profile/user-profile.component';
-import { MiscComponent } from './features/misc/misc.component';
 import { TopMetricsComponent } from './features/metrics/top-metrics/top-metrics.component';
 import { BottomMetricsComponent } from './features/metrics/bottom-metrics/bottom-metrics.component';
 import { CenterGraphComponent } from './features/metrics/center-graph/center-graph.component';
@@ -32,11 +31,10 @@ import { ManagerEffects } from './features/managers/store/managers.effects';
     NavbarComponent,
     MetricsComponent,
     UserProfileComponent,
-    MiscComponent,
     TopMetricsComponent,
     BottomMetricsComponent,
     CenterGraphComponent,
-    CenterSideComponent
+    CenterSideComponent,
   ],
   imports: [
     BrowserModule,

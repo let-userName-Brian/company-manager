@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { getTotalSalaryCount } from './store/misc.actions';
 
 @Component({
   selector: 'app-misc',
@@ -6,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./misc.component.sass']
 })
 export class MiscComponent implements OnInit {
-  constructor() { }
+  constructor(private store: Store) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.store.dispatch(getTotalSalaryCount())
   }
 
 }

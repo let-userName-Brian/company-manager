@@ -61,13 +61,4 @@ async function connectToDB() {
 /*
 * docker run script
 * docker run -e POSTGRES_USER=docker --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=Batman890 -d postgres
-
-
-SELECT * FROM 
-(SELECT emp_no FROM employees 
-UNION 
-SELECT salary FROM salaries)
-salaries
-JOIN employees ON employees.emp_no = salaries.emp_no
-limit 100
 */
