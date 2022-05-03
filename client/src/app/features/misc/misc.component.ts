@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { getTotalSalaryCount } from './store/misc.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-misc',

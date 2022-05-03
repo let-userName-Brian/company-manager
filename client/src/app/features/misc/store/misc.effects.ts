@@ -15,6 +15,7 @@ export class MiscEffects {
       exhaustMap(()=> {
         return this.miscService.getSalaryOverview().pipe(
           map((serviceCount) => {
+            console.log(serviceCount);
             let totalSalaryCount = serviceCount[0].total;
             let averageSalary = serviceCount[0].average_salary;
             let minSalary = serviceCount[0].minimum_salary;
