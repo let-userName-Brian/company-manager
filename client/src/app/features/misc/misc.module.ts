@@ -10,6 +10,7 @@ import { MiscEffects } from "./store/misc.effects";
 import { MiscReducer } from "./store/misc.reducer";
 import { SALARY_STATE_NAME } from "./store/misc.selector";
 import { TotalsSectionComponent } from "./totals-section/totals-section.component";
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 const miscRoutes: Routes = [
   { path: "", component: MiscComponent }
@@ -21,6 +22,7 @@ const miscRoutes: Routes = [
     BarChartComponent,
     PieChartComponent,
     TotalsSectionComponent,
+    LineChartComponent,
   ],
   imports: [
     CommonModule,
