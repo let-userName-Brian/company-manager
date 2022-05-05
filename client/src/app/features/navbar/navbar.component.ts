@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.sass']
 })
-export class NavbarComponent implements OnInit {
-
-  constructor(private store: Store) { }
-
-  ngOnInit(): void {
-  }
-}
+export class NavbarComponent  {
+  constructor() { }
+};

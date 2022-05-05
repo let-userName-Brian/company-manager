@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-center-side',
   templateUrl: './center-side.component.html',
   styleUrls: ['./center-side.component.sass']
 })
-export class CenterSideComponent implements OnInit {
-
+export class CenterSideComponent  {
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+};

@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     });
   };
 
+  //not hooked to server, just serves as a demo page
   onLogin() {
     console.log(this.loginForm.value);
     if (this.loginForm.valid) {

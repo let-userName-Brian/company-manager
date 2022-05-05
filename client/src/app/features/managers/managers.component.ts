@@ -1,17 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-managers',
   templateUrl: './managers.component.html',
   styleUrls: ['./managers.component.sass']
 })
-export class ManagersComponent implements OnInit {
-
-  constructor(private store: Store) { }
-
-  ngOnInit(): void {
-  
-  };
-
+export class ManagersComponent  {
+  constructor() { }
 };

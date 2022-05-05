@@ -1,12 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-metrics',
   templateUrl: './metrics.component.html',
   styleUrls: ['./metrics.component.sass']
 })
-export class MetricsComponent implements OnInit {
+export class MetricsComponent {
   constructor() { }
-
-  ngOnInit(): void {
-  };
 };

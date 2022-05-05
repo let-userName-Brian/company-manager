@@ -5,4 +5,4 @@ export interface Employee {
   last_name: string,
   gender: string,
   hire_date: Date
-}
+};

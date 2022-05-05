@@ -9,6 +9,7 @@ import { getManagerCount, onManagerCountFail, onManagerCountSuccess } from "./ma
 export class ManagerEffects {
   constructor(private actions$: Actions, private managerService: ManagerService) { }
 
+  //load managers count
   manager$ = createEffect((): any => {
     return this.actions$.pipe(
       ofType(getManagerCount),

@@ -14,9 +14,9 @@ export class AppComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
+    //initialize the store for the metrics page to load while on the login page
     this.store.dispatch(loadDepartments());
     this.store.dispatch(getEmployeesCount());
     this.store.dispatch(getManagerCount());
-  }
-
-}
+  };
+};

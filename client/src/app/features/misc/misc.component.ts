@@ -10,8 +10,8 @@ import { Store } from '@ngrx/store';
 export class MiscComponent implements OnInit {
   constructor(private store: Store) { }
 
+  //calls the DB to set the salary count
   ngOnInit(){
     this.store.dispatch(getTotalSalaryCount())
-  }
-
-}
+  };
+};

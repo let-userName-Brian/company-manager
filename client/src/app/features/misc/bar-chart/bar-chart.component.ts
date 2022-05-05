@@ -10,9 +10,9 @@ export class BarChartComponent implements  AfterViewInit {
   canvas: any;
   ctx: any;
   @ViewChild('myChart') myChart: any;
-
   constructor() { }
 
+  //loads the bar chart and uses a setTimeout to wait for the view to render
   ngAfterViewInit(): void {
     this.canvas = this.myChart.nativeElement;
     this.ctx = this.canvas.getContext('2d');

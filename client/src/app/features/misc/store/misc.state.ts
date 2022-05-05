@@ -1,8 +1,8 @@
 export interface MiscState {
-  totalSalaryCount: number;
-  averageSalary: number;
-  minSalary: number;
-  maxSalary: number;
+  totalSalaryCount: number,
+  averageSalary: number,
+  minSalary: number,
+  maxSalary: number
 };
 
 export const initialState: MiscState = {

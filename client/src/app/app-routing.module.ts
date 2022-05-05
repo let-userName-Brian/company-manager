@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: UserProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'metrics', component: MetricsComponent },
+  //lazy loaded modules 
   { path: 'departments', loadChildren: () => import('./features/departments/department.module').then(m => m.DepartmentModule) },
   { path: 'managers', loadChildren: () => import('./features/managers/manager.module').then(m => m.ManagerModule) },
   { path: 'employees', loadChildren: () => import('./features/employees/employees.module').then(m => m.EmployeeModule) },

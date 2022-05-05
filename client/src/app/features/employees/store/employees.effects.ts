@@ -9,6 +9,7 @@ import { getEmployeesCount, onEmployeesCountFail, onEmployeesCountSuccess } from
 export class EmployeeEffects {
   constructor(private actions$: Actions, private store: Store, private empService: EmployeeService) { }
 
+  //load employees count
   emp$ = createEffect((): any => {
     return this.actions$.pipe(
       ofType(getEmployeesCount),

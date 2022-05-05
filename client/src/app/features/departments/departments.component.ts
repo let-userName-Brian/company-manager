@@ -11,9 +11,9 @@ import { getDepts } from './store/dept.selector';
   styleUrls: ['./departments.component.sass']
 })
 export class DepartmentsComponent implements OnInit {
-  departments$: Observable<any>
+  departments$: Observable<any>;
   displayedColumns: string[] = ['Department Number', 'Department Name', 'Department Status'];
-  constructor(private store: Store<{ department: Department }>) { };
+  constructor(private store: Store<{ department: Department }>) { }
 
   ngOnInit(): void {
     this.departments$ = this.store.select(getDepts);

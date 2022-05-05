@@ -8,6 +8,7 @@ import { loadDepartments, loadDepartmentsSuccess, loadDepartmentsFail, loadDeptM
 export class DepartmentEffects {
   constructor(private actions$: Actions, private deptService: DepartmentService) { }
 
+  //load departments
   dept$ = createEffect((): any => {
     return this.actions$.pipe(
       ofType(loadDepartments),
@@ -23,6 +24,7 @@ export class DepartmentEffects {
       }));
   });
 
+  //load department managers
   deptManager$ = createEffect((): any => {
     return this.actions$.pipe(
       ofType(loadDeptManager),

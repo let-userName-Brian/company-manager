@@ -24,4 +24,4 @@ const _miscReducer = createReducer(
 
 export function MiscReducer(state: any, action: any) {
   return _miscReducer(state, action);
-}
+};

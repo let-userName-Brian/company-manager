@@ -12,11 +12,13 @@ export class CenterGraphComponent implements  AfterViewInit {
   @ViewChild('myChart') myChart: any;
   constructor() { }
 
+  //loads the chart when the component is initialized
   ngAfterViewInit(): void {
     this.canvas = this.myChart.nativeElement;
     this.ctx = this.canvas.getContext('2d');
     Chart.defaults.interaction.mode = 'nearest';
     const labels = ['Quarter 1', 'Quarter 2', 'Quarter 3', 'Quarter 4'];
+    //set timeout seems to give the component enough time to inialize the data 
     setTimeout(() => {
       new Chart(this.ctx, {
         type: 'line',
@@ -64,6 +66,5 @@ export class CenterGraphComponent implements  AfterViewInit {
         }
       });
     }, 500);
-  }
-
-}
+  };
+};

@@ -9,13 +9,13 @@ import { MANAGER_STATE_NAME } from "../../managers/store/managers.selector";
 import { ManagerState } from "../../managers/store/managers.state";
 
 export interface MetricsState {
-  [DEPT_STATE_NAME]: DepartmentState;
-  [EMP_STATE_NAME]: EmployeeState;
-  [MANAGER_STATE_NAME]: ManagerState;
-}
+  [DEPT_STATE_NAME]: DepartmentState,
+  [EMP_STATE_NAME]: EmployeeState,
+  [MANAGER_STATE_NAME]: ManagerState
+};
 
 export const metricsReducer = {
   [DEPT_STATE_NAME]: departmentReducer,
   [EMP_STATE_NAME]: EmployeeReducer,
-  [MANAGER_STATE_NAME]: ManagerReducer,
-}
+  [MANAGER_STATE_NAME]: ManagerReducer
+};

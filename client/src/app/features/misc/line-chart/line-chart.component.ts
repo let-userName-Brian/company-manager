@@ -12,7 +12,7 @@ export class LineChartComponent implements AfterViewInit {
   constructor() { }
   @ViewChild('lineChart') myChart: any;
 
-
+  //initializes the chart and sets the data
   ngAfterViewInit(): void {
     this.canvas = this.myChart.nativeElement;
     this.ctx = this.canvas.getContext('2d');

@@ -9,6 +9,7 @@ import { getTotalSalaryCount, getTotalSalaryCountFail, getTotalSalaryCountSucces
 export class MiscEffects {
   constructor(private actions$: Actions, private miscService: MiscService) { }
 
+  //load total salary count
   getTotalSalaryCount$ = createEffect((): any => {
     return this.actions$.pipe(
       ofType(getTotalSalaryCount),

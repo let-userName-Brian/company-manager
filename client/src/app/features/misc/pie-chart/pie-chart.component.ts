@@ -17,12 +17,14 @@ export class PieChartComponent implements OnInit, AfterViewInit {
   @ViewChild('pieChart') myChart: any;
   constructor(private store: Store) { }
 
+  //grabs the state from the store and sets it in a local variable
   ngOnInit(): void {
     this.store.select(getSalaryState).subscribe(state => {
       this.salaryState$ = state;
     });
   };
 
+  //initializes the chart and sets the data
   ngAfterViewInit(): void {
     this.canvas = this.myChart.nativeElement;
     this.ctx = this.canvas.getContext('2d');
@@ -33,6 +35,7 @@ export class PieChartComponent implements OnInit, AfterViewInit {
           labels: this.labels,
           datasets: [
             {
+              //divides the total to place it into millions (number far to large)
               data: [this.salaryState$.totalSalaryCount / 1000000, this.salaryState$.minSalary, this.salaryState$.maxSalary, this.salaryState$.averageSalary],
               backgroundColor: [
                 'rgb(255, 99, 132, 0.6)',
@@ -55,6 +58,6 @@ export class PieChartComponent implements OnInit, AfterViewInit {
           },
         },
       });
-    }, 500);
+    }, 600);
   };
-}
+};
