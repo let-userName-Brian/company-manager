@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getEmployeesCount } from './store/employees.actions';
 
@@ -7,11 +7,6 @@ import { getEmployeesCount } from './store/employees.actions';
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.sass']
 })
-export class EmployeesComponent implements OnInit {
-
+export class EmployeesComponent {
   constructor(private store: Store) { }
-
-  ngOnInit(): void {
-  }
-
 }

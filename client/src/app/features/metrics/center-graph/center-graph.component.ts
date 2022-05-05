@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -6,14 +6,11 @@ import Chart from 'chart.js/auto';
   templateUrl: './center-graph.component.html',
   styleUrls: ['./center-graph.component.sass']
 })
-export class CenterGraphComponent implements OnInit, AfterViewInit {
+export class CenterGraphComponent implements  AfterViewInit {
   canvas: any;
   ctx: any;
   @ViewChild('myChart') myChart: any;
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   ngAfterViewInit(): void {
     this.canvas = this.myChart.nativeElement;
