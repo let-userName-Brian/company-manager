@@ -18,22 +18,22 @@
       </mat-card-content>
     </mat-card>
   </div>
-</section>
-<!-- seperator -->
-<section class="details-container">
-  <div *ngFor="let dept of selectedDepartmentManager$ | async">
-    <div class="details">
-      <mat-card class="card">
-        <mat-card-header>
-          <div mat-card-avatar class="header-image hover"></div>
-          <mat-card-title>{{dept.first_name + " " + dept.last_name}}</mat-card-title>
-          <mat-card-subtitle>Hired on {{dept.hire_date | date}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content class="card-content">
-          <p>Birthday: {{dept.birth_date | date}}</p>
-          <p> Gender: {{dept.gender}}</p>
-        </mat-card-content>
-      </mat-card>
+  <!-- seperator -->
+  <div class="details-container">
+    <div *ngFor="let dept of selectedDepartmentManager$ | async">
+      <div class="details">
+        <mat-card class="card">
+          <mat-card-header>
+            <div mat-card-avatar class="header-image hover"></div>
+            <mat-card-title>{{dept.first_name + " " + dept.last_name}}</mat-card-title>
+            <mat-card-subtitle>Hired on {{dept.hire_date | date}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="card-content">
+            <p>Birthday: {{dept.birth_date | date}}</p>
+            <p> Gender: {{dept.gender}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </div>
 </section>
